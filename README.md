@@ -1,2 +1,2 @@
 # FarmersFriend
-HandleAllFarmerCare
+Farmers products from farmers not from others
