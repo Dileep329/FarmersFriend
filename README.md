@@ -1,0 +1,2 @@
+# FarmersFriend
+HandleAllFarmerCare
