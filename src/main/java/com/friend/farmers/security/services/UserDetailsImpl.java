@@ -3,6 +3,9 @@ package com.friend.farmers.security.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.friend.farmers.models.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +39,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String username, String email, String password,String mobilenumber,String pancard, Collection<? extends GrantedAuthority> authorities) {
+    public UserDetailsImpl(Long id, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.mobilenumber=mobilenumber;
         this.pancard=pancard;
@@ -45,6 +48,7 @@ public class UserDetailsImpl implements UserDetails {
         this.password = password;
         this.authorities = authorities;
     }
+
 
 //    Convert the provided user to the UserDetails
 
@@ -56,8 +60,6 @@ public class UserDetailsImpl implements UserDetails {
                user.getUserName(),
                user.getEmail(),
                user.getPassword(),
-               user.getMobileNumber(),
-               user.getPancard(),
                authorities);
     }
 

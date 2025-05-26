@@ -1,6 +1,8 @@
 package com.friend.farmers.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +17,13 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long category_id;
+    private long categoryId;
 
-    private String category_name;
+    @NotBlank
+    @Size(min =5, message="Category name contain least 5 characters")
+    private String categoryName;
 
     @OneToMany(mappedBy = "category" , cascade = CascadeType.ALL)
-    private List<Product> productList;
+    private List<Product> products;
 
 }

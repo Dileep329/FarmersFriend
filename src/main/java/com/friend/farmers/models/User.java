@@ -1,14 +1,18 @@
 package com.friend.farmers.models;
 
-
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users",
         uniqueConstraints = {
@@ -19,34 +23,47 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long userId;
 
+    @NotBlank
+    @Size(max=20)
     private String userName;
+
+    @NotBlank
+    @Size(max=50)
+    @Getter
+    @Setter
+    @Email(message = "Email is not valid")
+    @Column(name = "email")
     private String email;
-    private String mobileNumber;
-    private String pancard;
+
+    @NotBlank
+    @Size(max=120)
     private String password;
 
-    public User(String userName, String mail, String number, String pancard1, String password1) {
+    public User(String email, String userName, String password) {
+        this.email = email;
         this.userName = userName;
-        this.email = mail;
-        this.mobileNumber = number;
-        this.pancard = pancard;
-        this.pancard = password1;
+        this.password = password;
     }
 
-    @ManyToMany
+    @Setter
+    @Getter
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "role_id")
+            inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles;
+    private Set<Role> roles=new HashSet<>();
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "user",cascade = {CascadeType.MERGE,CascadeType.PERSIST},
             orphanRemoval = true)
     private Set<Product> products;
 
 
-
 }
+
+

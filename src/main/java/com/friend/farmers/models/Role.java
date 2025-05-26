@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "Roles")
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
@@ -21,7 +20,7 @@ public class Role {
     @Column(length = 20,name = "role_name")
     private AppRole roleName;
 
-    public Role(AppRole role){
-        this.roleName=role;
+    public Role(AppRole roleName) {
+        this.roleName = roleName;
     }
 }

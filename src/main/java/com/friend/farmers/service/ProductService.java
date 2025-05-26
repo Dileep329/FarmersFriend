@@ -1,12 +1,12 @@
 package com.friend.farmers.service;
 
 
-import com.ecommerce.flipkart.payload.ProductDTO;
-import com.ecommerce.flipkart.payload.ProductResponse;
+import com.friend.farmers.payload.ProductDTO;
+import com.friend.farmers.payload.ProductResponse;
 
 public interface ProductService {
 
-    ProductDTO addProduct(Long categoryId,ProductDTO productDTO);
+    ProductDTO addProduct(Long categoryId, ProductDTO productDTO);
 
     ProductResponse getAllProducts(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 

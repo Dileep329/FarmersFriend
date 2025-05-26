@@ -1,11 +1,11 @@
 package com.friend.farmers.controllers;
 
 
-import com.friend.farmers.Repository.RoleRepository;
-import com.friend.farmers.Repository.UserRepository;
 import com.friend.farmers.models.AppRole;
 import com.friend.farmers.models.Role;
 import com.friend.farmers.models.User;
+import com.friend.farmers.respository.RoleRepository;
+import com.friend.farmers.respository.UserRepository;
 import com.friend.farmers.security.jwt.JwtUtils;
 import com.friend.farmers.security.request.LoginRequest;
 import com.friend.farmers.security.request.SignupRequest;

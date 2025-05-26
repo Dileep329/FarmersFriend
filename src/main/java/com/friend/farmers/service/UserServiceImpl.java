@@ -1,7 +1,8 @@
 package com.friend.farmers.service;
 
-import com.ecommerce.flipkart.models.User;
-import com.ecommerce.flipkart.respository.UserRepository;
+
+import com.friend.farmers.models.User;
+import com.friend.farmers.respository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

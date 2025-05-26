@@ -1,7 +1,7 @@
 package com.friend.farmers.security.services;
 
-import com.friend.farmers.Repository.UserRepository;
 import com.friend.farmers.models.User;
+import com.friend.farmers.respository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

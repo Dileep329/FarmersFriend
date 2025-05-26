@@ -1,25 +1,38 @@
 package com.friend.farmers.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "products")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long product_id;
+    private Long productId;
 
-    private String product_name;
-    private String price;
-    private String quantity;
-    private String description;
+
+    @NotBlank
+    @Size(min = 3,message = "Product name must contain least 3 characters")
+    private String productName;
     private String imageUrl;
+
+
+    @NotBlank
+    @Size(min = 6,message = "Product name must contain least 3 characters")
+    private String description;
+    private Integer quantity;
+    private double price;
 
     @ManyToOne
     @JoinColumn(name="category_Name")

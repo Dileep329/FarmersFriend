@@ -1,7 +1,6 @@
 package com.friend.farmers.exception;
 
-
-import com.ecommerce.flipkart.payload.APIResponse;
+import com.friend.farmers.payload.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

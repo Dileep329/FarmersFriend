@@ -1,10 +1,11 @@
 package com.friend.farmers.security;
 
-import com.friend.farmers.Repository.RoleRepository;
-import com.friend.farmers.Repository.UserRepository;
+
 import com.friend.farmers.models.AppRole;
 import com.friend.farmers.models.Role;
 import com.friend.farmers.models.User;
+import com.friend.farmers.respository.RoleRepository;
+import com.friend.farmers.respository.UserRepository;
 import com.friend.farmers.security.jwt.AuthEntryPointJwt;
 import com.friend.farmers.security.jwt.AuthTokenFilter;
 import com.friend.farmers.security.services.UserDetailsServiceImpl;
@@ -137,17 +138,17 @@ public class WebSecurityConfig {
 
             // Create users if not already present
             if (!userRepository.existsByUserName("user1")) {
-                User user1 = new User("user1", "user1@example.com","8217867859","COMPD777DID", passwordEncoder.encode("user1password"));
+                User user1 = new User("user1@example.com", "user1", passwordEncoder.encode("user1password"));
                 userRepository.save(user1);
             }
 
             if (!userRepository.existsByUserName("seller1")) {
-                User seller1 = new User("seller1", "seller1@example.com","8217867859","COMPW777DID", passwordEncoder.encode("seller1password"));
+                User seller1 = new User("seller1@example.com", "seller1", passwordEncoder.encode("seller1password"));
                 userRepository.save(seller1);
             }
 
             if (!userRepository.existsByUserName("admin")) {
-                User admin = new User("admin1", "admin1@example.com","8217867859","COMRD777DID", passwordEncoder.encode("admin1password"));
+                User admin = new User("admin1@example.com", "admin1", passwordEncoder.encode("admin1password"));
                 userRepository.save(admin);
             }
 

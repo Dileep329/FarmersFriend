@@ -1,11 +1,12 @@
 package com.friend.farmers.service;
 
-import com.ecommerce.flipkart.exception.APIException;
-import com.ecommerce.flipkart.exception.ResourceNotFoundException;
-import com.ecommerce.flipkart.models.Category;
-import com.ecommerce.flipkart.payload.CategoryDTO;
-import com.ecommerce.flipkart.payload.CategoryResponse;
-import com.ecommerce.flipkart.respository.CategoryRepository;
+
+import com.friend.farmers.exception.APIException;
+import com.friend.farmers.exception.ResourceNotFoundException;
+import com.friend.farmers.models.Category;
+import com.friend.farmers.payload.CategoryDTO;
+import com.friend.farmers.payload.CategoryResponse;
+import com.friend.farmers.respository.CategoryRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService{
     private ModelMapper modelMapper;
 
     @Override
-    public CategoryResponse getAllUser(Integer pageNumber,Integer pageSize,String sortBy,String sortOrder) {
+    public CategoryResponse getAllUser(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder) {
         Sort sortByAndOrder=sortOrder.equalsIgnoreCase("asc")
                 ?Sort.by(sortBy).ascending()
                 :Sort.by(sortBy).descending();

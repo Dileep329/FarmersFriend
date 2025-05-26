@@ -1,10 +1,11 @@
 package com.friend.farmers.controllers;
 
 
-import com.friend.farmers.Service.ProductService;
+
 import com.friend.farmers.config.AppConstants;
 import com.friend.farmers.payload.ProductDTO;
 import com.friend.farmers.payload.ProductResponse;
+import com.friend.farmers.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/seller")
 public class ProductController {
 
     @Autowired

@@ -1,12 +1,12 @@
 package com.friend.farmers.service;
 
-import com.ecommerce.flipkart.payload.CategoryDTO;
-import com.ecommerce.flipkart.payload.CategoryResponse;
+import com.friend.farmers.payload.CategoryDTO;
+import com.friend.farmers.payload.CategoryResponse;
 import jakarta.validation.Valid;
 
 public interface CategoryService {
 
-     CategoryResponse getAllUser(Integer pageNumber,Integer pageSize,String sortBy,String sortOrder);
+     CategoryResponse getAllUser(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 
      CategoryDTO saveCategory(CategoryDTO categoryDTO);
 
