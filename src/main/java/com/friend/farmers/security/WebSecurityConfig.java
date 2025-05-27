@@ -80,10 +80,10 @@ public class WebSecurityConfig {
                                 //.requestMatchers("/api/admin/**").permitAll()
                                 //.requestMatchers("/api/public/**").permitAll()
                                 .requestMatchers("/swagger-ui/**").permitAll()
-                                .requestMatchers("/test").hasAnyAuthority("ROLE_USER")
-                                .requestMatchers("/testAdmin").hasAnyAuthority("ROLE_ADMIN")
-                                .requestMatchers("/testSeller").hasAnyAuthority("ROLE_SELLER")
-
+                                .requestMatchers("/actuator/**").permitAll()
+                                .requestMatchers("/user/**").hasAnyAuthority("ROLE_USER")
+                                .requestMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+                                .requestMatchers("/seller/**").hasAnyAuthority("ROLE_SELLER")
                                 .requestMatchers("/images/**").permitAll()
                                 .anyRequest().authenticated()
                 );
