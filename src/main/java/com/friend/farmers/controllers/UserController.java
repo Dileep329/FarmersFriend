@@ -15,6 +15,7 @@ public class UserController {
 
     @GetMapping("/test")
     public String test(){
+        System.out.println("User is able to access the source");
         return "User is able to access this controller";
     }
 
